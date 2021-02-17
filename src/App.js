@@ -67,6 +67,8 @@ const App = () => {
 
         console.log("WebSocket連線中...")
 
+        
+
         // 初始化websocket對應的動作
         initWebSocket()
 
