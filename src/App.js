@@ -13,7 +13,7 @@ const App = () => {
   // 正式：wss://chainss-dex-node.azurewebsites.net
   // const [wsAddress,setWsAddress] = useState("ws://13.88.218.45:9527/markets-summary")
   // const [wsAddress,setWsAddress] = useState("ws://127.0.0.1:9527/market-summary")
-  const [wsAddress,setWsAddress] = useState("ws://127.0.0.1:9527/market-summary")
+  const [wsAddress,setWsAddress] = useState("ws://127.0.0.1:9527/ws/markets-summary")
 
   const [wsRoute,setWsRoute] = useState("")
 
@@ -44,6 +44,7 @@ const App = () => {
       }
 
       //連線關閉
+      setWs(null)
       ws.onclose = ()=>{
         console.log("關閉連線",ws)
       }
