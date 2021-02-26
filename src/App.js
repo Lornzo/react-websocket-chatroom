@@ -11,9 +11,10 @@ const App = () => {
   // ws://127.0.0.1:9527/ws
   // ws://127.0.0.1:9527/ws
   // 正式：wss://chainss-dex-node.azurewebsites.net
-  // const [wsAddress,setWsAddress] = useState("ws://13.88.218.45:9527/markets-summary")
+  const [wsAddress,setWsAddress] = useState("ws://127.0.0.1:9527/ws/market-summary")
   // const [wsAddress,setWsAddress] = useState("ws://127.0.0.1:9527/market-summary")
-  const [wsAddress,setWsAddress] = useState("ws://127.0.0.1:9527/ws/markets-summary")
+  // const [wsAddress,setWsAddress] = useState("ws://127.0.0.1:9527/ws/markets-summary")
+  // const [wsAddress,setWsAddress] = useState("ws://127.0.0.1:9527/ws/market-summary")
 
   const [wsRoute,setWsRoute] = useState("")
 
@@ -30,7 +31,11 @@ const App = () => {
   }
 
   const desConnectWebSocket = ()=>{
-
+    if(ws){
+      ws.onclose = ()=>{
+        setWs(null)
+      }
+    }
   }
 
   // 初始化WebSocket的動作
@@ -44,8 +49,9 @@ const App = () => {
       }
 
       //連線關閉
-      setWs(null)
+      
       ws.onclose = ()=>{
+        setWs(null)
         console.log("關閉連線",ws)
       }
 
