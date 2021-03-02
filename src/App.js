@@ -11,18 +11,23 @@ const App = () => {
   // ws://127.0.0.1:9527/ws
   // ws://127.0.0.1:9527/ws
   // 正式：wss://chainss-dex-node.azurewebsites.net
-  const [wsAddress,setWsAddress] = useState("ws://127.0.0.1:9527/ws/market-summary")
-  // const [wsAddress,setWsAddress] = useState("ws://127.0.0.1:9527/market-summary")
+
+  // const [wsAddress,setWsAddress] = useState("ws://13.88.218.45:9527/ws/market-summary")
+  // const [wsAddress,setWsAddress] = useState("ws://127.0.0.1:9527/ws/market-summary")
   // const [wsAddress,setWsAddress] = useState("ws://127.0.0.1:9527/ws/markets-summary")
   // const [wsAddress,setWsAddress] = useState("ws://127.0.0.1:9527/ws/market-summary")
+  const [wsAddress,setWsAddress] = useState("ws://13.88.218.45:9527/ws/market-summary")
 
   const [wsRoute,setWsRoute] = useState("")
 
   // 連線到WebSocket
   const connectWebSocket = () => {
     if(!ws){
-      if(wsAddress != "" && wsRoute != ""){
-        var wsTarget = wsAddress+"/"+wsRoute
+      if(wsAddress != ""){
+        var wsTarget = wsAddress
+        if (wsRoute != ""){
+          wsTarget += "/"+wsRoute
+        }
         setWs(new WebSocket(wsTarget))
       }
     }else{
