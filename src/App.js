@@ -16,7 +16,8 @@ const App = () => {
   // const [wsAddress,setWsAddress] = useState("ws://127.0.0.1:9527/ws/market-summary")
   // const [wsAddress,setWsAddress] = useState("ws://127.0.0.1:9527/ws/markets-summary")
   // const [wsAddress,setWsAddress] = useState("ws://127.0.0.1:9527/ws/market-summary")
-  const [wsAddress,setWsAddress] = useState("ws://13.88.218.45:9527/ws/market-summary")
+  // const [wsAddress,setWsAddress] = useState("wss://13.88.218.45/ws/market-summary")
+  const [wsAddress,setWsAddress] = useState("ws://127.0.0.1/ws/subscribe") 
 
   const [wsRoute,setWsRoute] = useState("")
 
@@ -57,6 +58,7 @@ const App = () => {
       
       ws.onclose = ()=>{
         setWs(null)
+        ws.send("小夫進不來!")
         console.log("關閉連線",ws)
       }
 
