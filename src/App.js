@@ -51,7 +51,7 @@ const App = () => {
       // 連線成功
       ws.onopen = ()=>{
         console.log("連線成功",ws)
-        ws.send("小夫，我要進來囉!")
+        ws.send('{"token":"胖虎","content":"小夫，我要進來囉!"}')
       }
 
       //連線關閉
