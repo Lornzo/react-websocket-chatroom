@@ -108,12 +108,10 @@ const App = () => {
         <input type='button' value='打開連線' onClick={connectWebSocket} />
         <input type='button' value='中斷連線' onClick={desConnectWebSocket} />
       </div>
-      {/* <div>
+      <div>
           <input type="text" onChange={inputMessage}></input>
-          
-          
           <input type='button' value='送出訊息' onClick={sendMessage} />
-      </div> */}
+      </div>
     </div>
   )
 }
