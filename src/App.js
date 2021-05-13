@@ -17,7 +17,8 @@ const App = () => {
   // const [wsAddress,setWsAddress] = useState("ws://127.0.0.1:9527/ws/markets-summary")
   // const [wsAddress,setWsAddress] = useState("ws://127.0.0.1:9527/ws/market-summary")
   // const [wsAddress,setWsAddress] = useState("wss://13.88.218.45/ws/market-summary")
-  const [wsAddress,setWsAddress] = useState("ws://127.0.0.1/ws/subscribe") 
+  // const [wsAddress,setWsAddress] = useState("ws://127.0.0.1/ws/subscribe") 
+  const [wsAddress,setWsAddress] = useState("wss://13.88.218.45/ws/subscribe")
 
   const [wsRoute,setWsRoute] = useState("")
 
@@ -73,7 +74,7 @@ const App = () => {
   //向Server傳東西
   const sendMessage = () => {
     if(ws && msg){
-      ws.send(msg)
+      ws.send(JSON.stringify({msgtype:1,msgdata:msg}))
     }
   }
   
